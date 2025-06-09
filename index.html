@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>JEE lightweight CBT creator by Lakshya</title>
+    <!-- Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.13.216/pdf.min.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Simple Header -->
+    <header class="bg-gray-800 p-4 border-b border-gray-700 flex align-center justify-between">
+      <h1 class="text-2xl p-0 mt-0 font-bold inline-block">JEE Computer test Creator<br>By Lakshya</h1>
+      <div class="mt-2 flex gap-4 inline-block">
+        <input
+          type="file"
+          id="pdf-upload"
+          accept="application/pdf"
+          class="p-2 rounded bg-gray-700 text-gray-200 border border-gray-600"
+        />
+        <select
+          id="section-select"
+          class="p-2 rounded bg-gray-700 text-gray-200 border border-gray-600"
+        >
+          <option value="maths">Maths</option>
+          <option value="chemistry">Chemistry</option>
+          <option value="physics">Physics</option>
+          <option value="biology">Biology</option>
+        </select>
+
+        <button
+        id="next-settings-btn"
+        class="bg-blue-600 px-4 py-2 rounded text-white"
+        disabled
+      >
+        Next
+      </button>
+      </div>
+    </header>
+
+    <!-- Main container: Two columns (70% PDF viewer, 30% sidebar) -->
+    <div class="main-container">
+      <!-- PDF Viewer Column (70% width, scrollable) -->
+      <div id="pdf-viewer" class="pdf-viewer">
+
+        <!-- Loader Element (visible until first page is rendered) -->
+        <div id="pdf-loader" class="pdf-loader">Loading PDF...</div>
+        <!-- PDF pages will be appended here via JS (lazy-loaded) -->
+      </div>
+      <!-- Sidebar Column (30% width, scrollable) -->
+      <div id="sidebar" class="sidebar">
+        <!-- Three subject sections -->
+        <div id="sidebar-maths" class="sidebar-section">
+          <h2 class="text-xl font-bold border-b border-gray-600 pb-2">Maths</h2>
+          <div id="questions-maths" class="questions-list"></div>
+        </div>
+        <div id="sidebar-physics" class="sidebar-section">
+          <h2 class="text-xl font-bold border-b border-gray-600 pb-2">Physics</h2>
+          <div id="questions-physics" class="questions-list"></div>
+        </div>
+        <div id="sidebar-chemistry" class="sidebar-section">
+          <h2 class="text-xl font-bold border-b border-gray-600 pb-2">Chemistry</h2>
+          <div id="questions-chemistry" class="questions-list"></div>
+        </div>
+
+        <div id="sidebar-biology" class="sidebar-section">
+          <h2 class="text-xl font-bold border-b border-gray-600 pb-2">Biology</h2>
+          <div id="questions-biology" class="questions-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

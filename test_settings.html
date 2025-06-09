@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CBT JEE Lakshya</title>
+    <!-- Tailwind CSS from CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    >
+    <!-- Inline CSS for media queries -->
+    <style>
+
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.lazy-image.fade-in {
+  opacity: 1;
+}
+      /* Default desktop layout: main container uses flex row */
+      .main-container {
+        display: flex;
+        height: calc(100vh - 70px);
+      }
+      /* On smaller devices, stack main content and fix sidebar at bottom */
+      @media (max-width: 768px) {
+        .main-container {
+          flex-direction: column;
+          height: auto;
+        }
+        /* Main content takes full width and is given bottom margin to make space for the sidebar */
+        #main-content {
+          width: 100%;
+          /* Adjust as needed: here we reserve 220px for the fixed sidebar */
+          margin-bottom: 220px;
+        }
+        /* Sidebar becomes a fixed bottom bar */
+        #sidebar {
+          width: 100%;
+          height: 220px; /* Fixed height on mobile; adjust if needed */
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          z-index: 50;
+          /* Ensuring the sidebar background and padding stay the same */
+          background-color: #1f1f1f;
+          padding: 10px;
+          overflow-y: auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Header with Back button -->
+    <header class="bg-gray-800 p-4 border-b border-gray-700 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Test Settings</h1>
+      <button id="back-button" class="bg-gray-700 px-4 py-2 rounded">Back</button>
+    </header>
+    
+    <!-- Main container: 70% main content, 30% sidebar -->
+    <div class="main-container">
+      
+      <!-- Main Content (70% width on desktop): Display questions with answer type settings -->
+      <div id="main-content" class="w-[70%] overflow-y-auto p-4">
+        <!-- This area will be filled by test_settings.js based on sessionStorage "questions" -->
+      </div>
+      
+      <!-- Sidebar (30% width on desktop): Test parameters -->
+      <div id="sidebar" class="w-[30%] overflow-y-auto p-4 bg-gray-800">
+        <h2 class="text-xl font-bold mb-4">Test Parameters</h2>
+        <div class="mb-4">
+          <label for="test-time" class="block font-semibold">Test Time (minutes):</label>
+          <input type="number" id="test-time" value="180" class="mt-1 px-2 py-1 text-gray-900 rounded">
+        </div>
+     
+        
+        <div class="mb-4">
+          <p class="font-semibold">Total Maximum Marks:</p>
+          <p id="total-marks-display" class="text-lg font-bold">0</p>
+        </div>
+        
+        <button id="start-test-btn" disabled class="w-full bg-green-600 text-white px-4 py-2 rounded">
+          Start Test
+        </button>
+      </div>
+    </div>
+    
+    <script src="test_settings.js"></script>
+  </body>
+</html>

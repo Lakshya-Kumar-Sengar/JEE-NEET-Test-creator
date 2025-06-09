@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind for utility classes -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="test.css">
+</head>
+<body class="bg-gray-900 text-gray-200">
+  <!-- Header with fullscreen toggle, timer, and action buttons -->
+  <header class="bg-gray-800 p-4 flex items-center justify-between shadow-lg">
+    <div class="flex items-center space-x-4">
+      <button id="fullscreenToggle" class="bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 focus:outline-none">
+        Exit Fullscreen
+      </button>
+      <h1 class="text-2xl font-bold">Test Interface</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <span id="timer" class="text-2xl font-mono"></span>
+      <button id="saveNextBtn" class="bg-blue-500 px-6 py-3 rounded hover:bg-blue-400 focus:outline-none">
+        Save &amp; Next
+      </button>
+      <button id="submitTestBtn" class="bg-green-600 px-6 py-3 rounded hover:bg-green-500 focus:outline-none">
+        Submit Test
+      </button>
+    </div>
+  </header>
+
+  <!-- Main container: Left 80% for question content, Right 20% for sidebar -->
+  <div class="main-container">
+    <!-- Left side: Content Area -->
+    <div id="contentArea" class="w-4/5 p-6 overflow-y-auto">
+      <!-- Section switching area (always visible) -->
+      <div id="sectionSelection" class="mb-6">
+        <h2 class="text-3xl font-bold mb-4">Select Section</h2>
+        <div id="sectionButtons" class="flex flex-wrap gap-4"></div>
+      </div>
+      <!-- Question Display Area (animated on change) -->
+      <div id="questionDisplay" class="animate-fadeIn">
+        <div id="questionHeader" class="mb-4">
+          <h2 id="questionTitle" class="text-2xl font-semibold"></h2>
+        </div>
+        <div id="questionImageContainer" class="mb-6">
+          <!-- Question image goes here -->
+        </div>
+        <div id="questionOptions" class="mb-4">
+          <!-- Answer input(s) appear here -->
+        </div>
+      </div>
+    </div>
+    <!-- Right side: Sidebar Navigation -->
+    <div id="sidebar" class="w-1/5 p-4 bg-gray-800 overflow-y-auto">
+      <h2 class="text-xl font-bold mb-4">Questions</h2>
+      <div id="questionList" class="space-y-3"></div>
+    </div>
+  </div>
+
+  <script src="test.js"></script>
+</body>
+</html>

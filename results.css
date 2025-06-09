@@ -1,0 +1,98 @@
+/* Dark mode styling */
+body {
+  font-family: sans-serif;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+header {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+
+#overallResults {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subject-block {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  border: 1px solid #444;
+}
+
+.subject-block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subject-block p {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Ensure charts scale properly */
+.subject-block canvas {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Section styling for detailed questions */
+.detailed-section {
+  margin-bottom: 2rem;
+}
+
+.detailed-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #555;
+  padding-bottom: 0.5rem;
+}
+
+/* Question card styling */
+.question-card {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Ensure question images are full-sized */
+.question-card img {
+  width: 100%;
+  max-width: 500px; /* Large display */
+  border-radius: 0.25rem;
+  object-fit: contain;
+  border: 3px solid #444;
+}
+
+/* Answer correctness coloring */
+.result-correct {
+  color: #4caf50; /* Green */
+  font-weight: bold;
+}
+
+.result-wrong {
+  color: #f44336; /* Red */
+  font-weight: bold;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade {
+  animation: fadeIn 0.5s ease-out;
+}
